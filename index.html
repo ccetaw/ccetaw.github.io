@@ -28,46 +28,84 @@
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
     a{color:var(--acc);text-decoration:none}
     a:hover{text-decoration:underline}
-    .container{max-width:1120px;margin:0 auto;padding:28px}
-    header.hero{display:grid;grid-template-columns:96px 1fr;gap:20px;align-items:center;margin-top:12px}
-    .avatar{width:96px;height:96px;border-radius:50%;background:#d9e1ff url('https://placehold.co/192x192/png') center/cover no-repeat;border:2px solid var(--ring)}
-    .hero h1{margin:0;font-size:clamp(28px, 4vw, 40px);letter-spacing:-0.02em}
-    .subtitle{margin:6px 0 0;color:var(--muted)}
-    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-    .chip{padding:6px 10px;border-radius:999px;background:var(--chip);border:1px solid rgba(255,255,255,0.06);font-size:13px}
-    nav.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-    .link{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid rgba(255,255,255,0.08);background:var(--card);border-radius:10px}
+    .container{max-width:1200px;margin:0 auto;padding:32px 24px}
+    header.hero{display:grid;grid-template-columns:110px 1fr;gap:24px;align-items:center;margin-top:16px;margin-bottom:16px}
+    .avatar{width:110px;height:110px;border-radius:50%;background:#d9e1ff url('./res/profile.JPG') center/cover no-repeat;border:3px solid var(--ring);transition:all .3s ease}
+    .avatar:hover{transform:scale(1.05);border-color:var(--acc)}
+    .hero h1{margin:0;font-size:clamp(32px, 4.5vw, 44px);letter-spacing:-0.02em;font-weight:800}
+    .subtitle{margin:8px 0 0;color:var(--muted);font-size:16px;line-height:1.4}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    .chip{padding:8px 12px;border-radius:999px;background:var(--chip);border:1px solid rgba(255,255,255,0.06);font-size:13px;font-weight:500;transition:all .2s ease}
+    .chip:hover{background:rgba(122,162,255,0.15);border-color:var(--acc)}
+    nav.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+    .link{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid rgba(255,255,255,0.08);background:var(--card);border-radius:12px;transition:all .2s ease;font-weight:500}
+    .link:hover{background:rgba(122,162,255,0.1);border-color:var(--acc);transform:translateY(-1px)}
+    @media(max-width:640px){
+      header.hero{grid-template-columns:1fr;text-align:center;gap:16px}
+      .avatar{width:90px;height:90px;margin:0 auto}
+    }
 
     /* Sections */
-    section{margin-top:38px}
-    .section-title{font-size:20px;margin:0 0 14px;font-weight:700}
-    .grid{display:grid;gap:16px}
-    @media(min-width:760px){
+    section{margin-top:48px}
+    .section-title{font-size:24px;margin:0 0 20px;font-weight:700;color:var(--text);position:relative}
+    .section-title::after{content:'';position:absolute;bottom:-8px;left:0;width:40px;height:3px;background:var(--acc);border-radius:2px}
+    .grid{display:grid;gap:20px}
+    @media(min-width:640px){
       .grid.cols-2{grid-template-columns:1fr 1fr}
+    }
+    @media(min-width:900px){
       .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
+    }
+    @media(max-width:639px){
+      .grid.cols-2, .grid.cols-3{grid-template-columns:1fr}
     }
 
     /* Cards */
-    .card{background:var(--card);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);transition:transform .2s ease, box-shadow .2s ease}
-    .card:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,0.35)}
-    .thumb{width:100%;aspect-ratio:16/9;border-radius:12px;background:#101522 url('https://placehold.co/800x450/png') center/cover no-repeat;border:1px solid rgba(255,255,255,0.06)}
-    .card h3{margin:12px 0 6px;font-size:18px}
-    .meta{font-size:13px;color:var(--muted);margin:0 0 10px}
-    .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-    .tag{font-size:12px;padding:4px 8px;background:var(--chip);border:1px solid rgba(255,255,255,0.08);border-radius:999px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);transition:all .3s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,0.4)}
+    .thumb{width:100%;aspect-ratio:16/9;border-radius:12px;background:#101522 url('https://placehold.co/800x450/png') center/cover no-repeat;border:1px solid rgba(255,255,255,0.06);margin-bottom:16px}
+    .card h3{margin:0 0 8px;font-size:19px;font-weight:600;line-height:1.3}
+    .meta{font-size:13px;color:var(--muted);margin:0 0 12px;font-weight:500}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .tag{font-size:12px;padding:6px 10px;background:var(--chip);border:1px solid rgba(255,255,255,0.08);border-radius:999px;transition:all .2s ease}
+    .tag:hover{background:rgba(122,162,255,0.1);border-color:var(--acc)}
 
     /* Timeline */
-    .timeline{display:grid;gap:14px}
-    .item{display:grid;gap:6px;padding:14px;border-radius:14px;background:var(--card);border:1px solid rgba(255,255,255,0.08)}
-    .item .where{display:flex;justify-content:space-between;gap:10px}
-    .item .where strong{font-size:16px}
-    .item ul{margin:6px 0 0 18px}
-    .item li{margin:6px 0}
+    .timeline{display:grid;gap:18px}
+    .item{display:grid;gap:8px;padding:20px;border-radius:16px;background:var(--card);border:1px solid rgba(255,255,255,0.08);transition:all .3s ease}
+    .item:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,0,0,0.25)}
+    .item .header{display:flex;align-items:flex-start;gap:16px;margin-bottom:8px}
+    .item .logo{width:48px;height:48px;border-radius:8px;background:#ffffff center/contain no-repeat;border:1px solid rgba(255,255,255,0.1);flex-shrink:0;padding:6px}
+    .item .where{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;flex:1}
+    .item .where strong{font-size:17px;font-weight:600;line-height:1.3}
+    .item .meta{margin:0;flex-shrink:0}
+    .item ul{margin:8px 0 0 20px;padding:0}
+    .item li{margin:8px 0;line-height:1.5}
+
+    /* Section-specific styles */
+    #skills .grid{gap:16px}
+    #skills .card{padding:18px}
+    #skills .card h3{margin-bottom:12px;color:var(--acc);font-size:17px}
+    #contact .card{text-align:center;padding:24px}
+    #contact .card p{margin:8px 0;font-size:15px}
+    
+    /* Education cards with logos */
+    #education .card{position:relative;padding:24px 20px 20px 20px}
+    #education .card .edu-header{display:flex;align-items:flex-start;gap:16px;margin-bottom:12px}
+    #education .card .uni-logo{width:40px;height:40px;border-radius:6px;background:#ffffff center/contain no-repeat;border:1px solid rgba(255,255,255,0.1);flex-shrink:0;padding:4px}
+    #education .card .edu-content{flex:1}
+    #education .card h3{margin:0 0 6px;font-size:18px;line-height:1.2}
+    
+    /* Publication and Project cards */
+    #publications .card, #projects .card{position:relative;overflow:hidden}
+    #publications .card p:last-of-type, #projects .card p:last-of-type{margin-top:12px;font-size:14px}
+    #publications .card p:last-of-type a, #projects .card p:last-of-type a{font-weight:500}
 
     /* Footer */
-    footer{margin:40px 0 12px;color:var(--muted);font-size:13px}
-    .cv-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:linear-gradient(180deg, var(--acc), #4e77ff);color:white;border:none;box-shadow:var(--shadow)}
-    .cv-btn:hover{filter:brightness(1.05);text-decoration:none}
+    footer{margin:56px 0 20px;padding:24px 0;border-top:1px solid rgba(255,255,255,0.08);text-align:center}
+    .cv-btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;background:linear-gradient(135deg, var(--acc), #4e77ff);color:white;border:none;box-shadow:var(--shadow);font-weight:600;transition:all .3s ease}
+    .cv-btn:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 12px 30px rgba(122,162,255,0.3);text-decoration:none}
+    footer > div{margin-top:16px;color:var(--muted);font-size:14px}
   </style>
 </head>
 <body>
@@ -76,107 +114,28 @@
       <div class="avatar" aria-label="Profile photo placeholder"></div>
       <div>
         <h1>Jingyu Wang</h1>
-        <p class="subtitle">MSc Data Science @ ETH · ML Engineer @ Josepha (Zurich)</p>
+        <p class="subtitle">MSc Data Science @ ETH · ML Engineer @ JOSEPHA (Zürich)</p>
         <div class="chips">
           <span class="chip">ML & AI Engineering</span>
           <span class="chip">Data Science</span>
           <span class="chip">Software Engineering</span>
-          <span class="chip">Open to: ML/AI Eng · SWE · DS</span>
         </div>
         <nav class="links" aria-label="Primary">
-          <a class="link" href="mailto:jing-yu.wang@outlook.com" aria-label="Email">📧 Email</a>
           <a class="link" href="https://www.linkedin.com/in/jingyu-wang-8a3957225" target="_blank" rel="noreferrer">💼 LinkedIn</a>
           <a class="link" href="https://github.com/ccetaw" target="_blank" rel="noreferrer">🐙 GitHub</a>
-          <a class="link" href="CV_17072025.pdf" download>⬇️ Download CV</a>
+          <a class="link" href="./res/CV_17072025.pdf" download>⬇️ Download CV</a>
         </nav>
       </div>
     </header>
-
-    <section id="skills">
-      <h2 class="section-title">Skills</h2>
-      <div class="grid cols-3">
-        <div class="card">
-          <h3>Programming</h3>
-          <p>Python, C++, CUDA, Shell</p>
-          <div class="tags">
-            <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">LangChain</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Data & Infra</h3>
-          <p>PostgreSQL, Spark, MongoDB, Firestore</p>
-          <div class="tags">
-            <span class="tag">GCP</span><span class="tag">AWS</span><span class="tag">Azure AI</span><span class="tag">Docker</span><span class="tag">CI/CD</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Tooling & Methods</h3>
-          <p>Linux, GitHub Actions, OpenCV, huggingface, SD</p>
-          <div class="tags">
-            <span class="tag">Scrum</span><span class="tag">Presentation</span><span class="tag">Documentation</span>
-          </div>
-        </div>
-      </div>
-      <p class="meta" style="margin-top:10px">Languages: English (C1), French (C1), Chinese (native), German (A2)</p>
-      <p class="meta">Certificates: Azure AI Engineer Associate; IBM Data Science Professional</p>
-    </section>
-
-    <section id="projects">
-      <h2 class="section-title">Selected Projects</h2>
-      <div class="grid cols-3">
-        <article class="card">
-          <div class="thumb" style="background-image:url('https://placehold.co/800x450?text=RISE-SDF');"></div>
-          <h3>RISE‑SDF</h3>
-          <p class="meta">Relightable Information‑Sharing Signed Distance Field for glossy object inverse rendering</p>
-          <p>State-of-the-art 3D reconstruction, material estimation, and relighting; built on NeRF/SDF with multi‑GPU training and custom pipelines.</p>
-          <div class="tags"><span class="tag">PyTorch</span><span class="tag">CUDA</span><span class="tag">Inverse Rendering</span></div>
-          <p><a href="#" aria-label="Project website placeholder">Project website</a> · <a href="#publications">Paper</a></p>
-        </article>
-        <article class="card">
-          <div class="thumb" style="background-image:url('https://placehold.co/800x450?text=GenAI+Textures');"></div>
-          <h3>GenAI Texture Tool (Ubisoft)</h3>
-          <p class="meta">Text‑to‑texture diffusion & image translation for game‑ready materials</p>
-          <p>Local training → Azure deployment → production integration; high‑fidelity, consistent material map synthesis via prompts; integrated with ComfyUI.</p>
-          <div class="tags"><span class="tag">Stable Diffusion</span><span class="tag">PyTorch</span><span class="tag">C++/CUDA</span><span class="tag">Azure</span></div>
-          <p><a href="#publications">Manuscript (under review)</a></p>
-        </article>
-        <article class="card">
-          <div class="thumb" style="background-image:url('https://placehold.co/800x450?text=AI+Shopping+Platform');"></div>
-          <h3>AI Shopping Platform (Josepha)</h3>
-          <p class="meta">Price comparison with conversational shopping</p>
-          <p>Cut request latency by ~45%, boosted matching accuracy 63%→92%, TB‑scale feed ingestion with AI enrichment, and deployed features like price alerts & fake‑shop detection.</p>
-          <div class="tags"><span class="tag">FastAPI</span><span class="tag">LLMs</span><span class="tag">GCP/AWS</span><span class="tag">MongoDB</span></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="publications">
-      <h2 class="section-title">Publications</h2>
-      <div class="grid cols-2">
-        <article class="card">
-          <div class="thumb" style="background-image:url('https://placehold.co/800x450?text=3DV+2025');"></div>
-          <h3>RISE‑SDF</h3>
-          <p class="meta">3DV 2025 (accepted)</p>
-          <p>Relightable Information‑Sharing SDF for glossy object inverse rendering; achieves SOTA in reconstruction, material estimation & relighting.</p>
-          <div class="tags"><span class="tag">3D Vision</span><span class="tag">NeRF/SDF</span></div>
-          <p><a href="#">Paper (soon)</a></p>
-        </article>
-        <article class="card">
-          <div class="thumb" style="background-image:url('https://placehold.co/800x450?text=SIGGRAPH+Asia+2025');"></div>
-          <h3>Text‑to‑Texture via Diffusion</h3>
-          <p class="meta">SIGGRAPH Asia 2025 (submitted)</p>
-          <p>Production‑oriented pipeline for generating consistent material maps from prompts; integrated and evaluated with artists and art directors.</p>
-          <div class="tags"><span class="tag">Graphics</span><span class="tag">Diffusion</span></div>
-          <p><a href="#">Preprint (when available)</a></p>
-        </article>
-      </div>
-    </section>
 
     <section id="experience">
       <h2 class="section-title">Experience</h2>
       <div class="timeline">
         <div class="item">
-          <div class="where"><strong>Machine Learning Engineer — Josepha</strong><span class="meta">Mar 2025 – Present · Zurich</span></div>
+          <div class="header">
+            <div class="logo" style="background-image:url('./res/JOSEPHA_Logo.png')" title="JOSEPHA"></div>
+            <div class="where"><strong>Machine Learning Engineer — JOSEPHA</strong><span class="meta">Mar 2025 – Present · Zurich</span></div>
+          </div>
           <ul>
             <li>Reduced request latency by ~45% via multithreading & async; raised matching accuracy from 63%→92% with multi‑strategy approach.</li>
             <li>Designed TB‑scale e‑commerce feed ingestion with AI data enhancement; built price alerts, fake‑shop detection, context‑aware chatbot.</li>
@@ -184,22 +143,22 @@
           </ul>
         </div>
         <div class="item">
-          <div class="where"><strong>ML Engineer Intern — Josepha</strong><span class="meta">Oct 2024 – Mar 2025 · Zurich</span></div>
+          <div class="header">
+            <div class="logo" style="background-image:url('./res/JOSEPHA_Logo.png')" title="JOSEPHA"></div>
+            <div class="where"><strong>Machine Learning Engineer Intern — JOSEPHA</strong><span class="meta">Oct 2024 – Mar 2025 · Zurich</span></div>
+          </div>
           <ul>
             <li>Backend features & infra across GCP/AWS; Dockerized services; CI/CD with GitHub Actions.</li>
           </ul>
         </div>
         <div class="item">
-          <div class="where"><strong>Research Scientist Intern — Ubisoft</strong><span class="meta">Feb 2024 – Jun 2024 · Shanghai</span></div>
+          <div class="header">
+            <div class="logo" style="background-image:url('./res/Ubisoft_Logo.png')" title="Ubisoft"></div>
+            <div class="where"><strong>Research Scientist Intern — Ubisoft</strong><span class="meta">Feb 2024 – Jun 2024 · Shanghai</span></div>
+          </div>
           <ul>
             <li>Built GenAI text‑to‑texture tool; trained locally, deployed to Azure, integrated into production.</li>
             <li>High‑fidelity material synthesis; PyTorch + C++/CUDA modules; integrated with ComfyUI.</li>
-          </ul>
-        </div>
-        <div class="item">
-          <div class="where"><strong>Master Thesis Student — ETH Zurich (VLG)</strong><span class="meta">Aug 2023 – Jun 2024 · Zurich</span></div>
-          <ul>
-            <li>Developed RISE‑SDF; new architecture + dataset; multi‑GPU training on Slurm; automated pipelines.</li>
           </ul>
         </div>
       </div>
@@ -207,39 +166,124 @@
 
     <section id="education">
       <h2 class="section-title">Education</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="edu-header">
+            <div class="uni-logo" style="background-image:url('./res/ETH_Zurich_Logo.png')" title="ETH Zurich"></div>
+            <div class="edu-content">
+              <h3>ETH Zurich — MSc Data Science</h3>
+              <p class="meta">Sep 2021 – Sep 2024 · GPA 5.5/6 · Master Thesis: 5.75/6</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="edu-header">
+            <div class="uni-logo" style="background-image:url('./res/UCBL_Logo.png')" title="UCBL Lyon 1"></div>
+            <div class="edu-content">
+              <h3>UCBL Lyon 1 — BSc Physics (Joint)</h3>
+              <p class="meta">Sep 2019 – Jun 2021 · Avg 18.1/20 · Rank 1/100 · Distinguished Graduate</p>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="edu-header">
+            <div class="uni-logo" style="background-image:url('./res/Wuhan_University_Logo.png')" title="Wuhan University"></div>
+            <div class="edu-content">
+              <h3>Wuhan University — BSc Physics (Joint)</h3>
+              <p class="meta">Sep 2017 – Jun 2019 · GPA 3.97/4.00 · Rank 1/197 · National Scholarship</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Programming</h3>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">C++</span><span class="tag">CUDA</span><span class="tag">Shell</span><span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">LangChain</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Data & Infra</h3>
+          <div class="tags">
+            <span class="tag">PostgreSQL</span><span class="tag">Spark</span><span class="tag">MongoDB</span><span class="tag">Firestore</span><span class="tag">GCP</span><span class="tag">AWS</span><span class="tag">Azure AI</span><span class="tag">Docker</span><span class="tag">CI/CD</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Tooling & Methods</h3>
+          <div class="tags">
+            <span class="tag">Linux</span><span class="tag">GitHub Actions</span><span class="tag">OpenCV</span><span class="tag">huggingface</span><span class="tag">SD</span><span class="tag">Scrum</span><span class="tag">Presentation</span><span class="tag">Documentation</span>
+          </div>
+        </div>
+      </div>
+      <div class="grid cols-2" style="margin-top:20px">
+        <div class="card">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag">English (C1)</span><span class="tag">French (C1)</span><span class="tag">Chinese (native)</span><span class="tag">German (A2)</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Certificates</h3>
+          <div class="tags">
+            <span class="tag">Azure AI Engineer Associate</span><span class="tag">IBM Data Science Professional</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2 class="section-title">Publications</h2>
       <div class="grid cols-2">
-        <div class="card">
-          <h3>ETH Zurich — MSc Data Science</h3>
-          <p class="meta">Sep 2021 – Sep 2024 · GPA 5.5/6</p>
-          <p>Advanced ML, Big Data, Optimization, Machine Perception, Statistics, Computer Vision.</p>
-        </div>
-        <div class="card">
-          <h3>UCBL Lyon 1 — BSc Physics (Joint)</h3>
-          <p class="meta">Sep 2019 – Jun 2021 · Avg 18.1/20 · Rank 1/100 · Distinguished Graduate</p>
-        </div>
-        <div class="card">
-          <h3>Wuhan University — BSc Physics (Joint)</h3>
-          <p class="meta">Sep 2017 – Jun 2019 · GPA 3.97/4.00 · Rank 1/197 · National Scholarship</p>
-        </div>
+        <article class="card">
+          <div class="thumb" style="background-image:url('./res/RISE-SDF.gif');"></div>
+          <h3>RISE-SDF: a Relightable Information-Shared Signed Distance Field for Glossy Object Inverse Rendering</h3>
+          <p class="meta">3DV 2025 (accepted)</p>
+          <p>Relightable Information‑Sharing SDF for glossy object inverse rendering; achieves SOTA in reconstruction, material estimation & relighting.</p>
+          <div class="tags"><span class="tag">3D Vision</span><span class="tag">NeRF/SDF</span></div>
+          <p><a href="https://www.arxiv.org/pdf/2409.20140">Paper</a></p>
+        </article>
+        <article class="card">
+          <div class="thumb" style="background-image:url('./res/CHORD.gif');"></div>          
+          <h3>CHORD: Chain of Rendering Decomposition for PBR Material Estimation from Generated Texture Images</h3>
+          <p class="meta">SIGGRAPH Asia 2025 (accepted)</p>
+          <p>Production‑oriented pipeline for generating consistent material maps from prompts; integrated and evaluated with artists and art directors.</p>
+          <div class="tags"><span class="tag">Graphics</span><span class="tag">Diffusion</span></div>
+          <p><a href="#">Preprint (when available)</a></p>
+        </article>
       </div>
     </section>
 
     <section id="contact">
       <h2 class="section-title">Contact</h2>
       <div class="card">
-        <p>Email: <a href="mailto:jing-yu.wang@outlook.com">jing-yu.wang@outlook.com</a></p>
-        <p>Phone: <a href="tel:+41764679337">+41 076 467 93 37</a></p>
+        <p>Email: <a href="#" id="email-link">Click to reveal email</a></p>
         <p>Location: Zurich, Switzerland · Permit B (eligible for employment)</p>
       </div>
     </section>
 
     <footer>
-      <a class="cv-btn" href="CV_17072025.pdf" download>Download full CV</a>
+      <a class="cv-btn" href="./res/CV_17072025.pdf" download>Download full CV</a>
       <div style="margin-top:14px">© <span id="year"></span> Jingyu Wang. Built for GitHub Pages.</div>
     </footer>
   </div>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Email obfuscation
+    document.getElementById('email-link').addEventListener('click', function(e) {
+      e.preventDefault();
+      const user = 'jing-yu.wang';
+      const domain = 'outlook.com';
+      const email = user + '@' + domain;
+      this.href = 'mailto:' + email;
+      this.textContent = email;
+      this.onclick = null; // Remove click handler after first click
+    });
   </script>
 </body>
 </html>
